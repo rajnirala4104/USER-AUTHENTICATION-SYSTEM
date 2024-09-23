@@ -1,0 +1,29 @@
+{
+   "name": "user-authentication-system-for-emergency",
+   "version": "1.0.0",
+   "description": "this is gonna be an api to authenticate a user",
+   "main": "index.js",
+   "scripts": {
+      "server": "npx tsc && node ./build/index.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rajnirala4104/USER-AUTHENTICATION-SYSTEM.git"
+   },
+   "author": "raj nirala",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/rajnirala4104/USER-AUTHENTICATION-SYSTEM/issues"
+   },
+   "homepage": "https://github.com/rajnirala4104/USER-AUTHENTICATION-SYSTEM#readme",
+   "dependencies": {
+      "express": "^4.21.0",
+      "http-status-codes": "^2.3.0"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.21",
+      "@types/node": "^22.5.5",
+      "typescript": "^5.6.2"
+   }
+}
