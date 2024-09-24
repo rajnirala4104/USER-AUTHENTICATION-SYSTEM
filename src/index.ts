@@ -1,17 +1,11 @@
-import express, { Application, Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
+import dotenv from "dotenv";
+import { app } from "./app";
+dotenv.config({
+      path: "./.env",
+});
 
-const app: Application = express();
-const port: Number = 8000;
-
-app.get('/', async (req: Request, res: Response) => {
-      return res.status(StatusCodes.OK).json({
-            message: "api is running successfully for emergency",
-            status: StatusCodes.OK,
-            data: null
-      })
-})
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-      console.log("server is running... at 8000")
+      console.log(`server is running:-  http://127.0.0.1:${port}/`.yellow.bold);
 })

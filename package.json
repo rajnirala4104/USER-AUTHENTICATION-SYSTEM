@@ -18,10 +18,17 @@
    },
    "homepage": "https://github.com/rajnirala4104/USER-AUTHENTICATION-SYSTEM#readme",
    "dependencies": {
+      "bcrypt": "^5.1.1",
+      "colors": "^1.4.0",
+      "dotenv": "^16.4.5",
       "express": "^4.21.0",
-      "http-status-codes": "^2.3.0"
+      "http-status-codes": "^2.3.0",
+      "jsonwebtoken": "^9.0.2",
+      "mongoose": "^8.6.3"
    },
    "devDependencies": {
+      "@types/cookie-parser": "^1.4.7",
+      "@types/cors": "^2.8.17",
       "@types/express": "^4.17.21",
       "@types/node": "^22.5.5",
       "typescript": "^5.6.2"
