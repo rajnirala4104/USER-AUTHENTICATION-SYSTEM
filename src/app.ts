@@ -3,11 +3,9 @@ import cors from "cors";
 import express, { Application, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { CORS_ORIGIN, EXPRESS_RATE_LIMIT } from "./constants";
-import { connectDB } from "./database/connectDB";
 import { apiRouter } from "./routes";
 
 const app: Application = express();
-connectDB();
 
 // express middlewares
 app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
