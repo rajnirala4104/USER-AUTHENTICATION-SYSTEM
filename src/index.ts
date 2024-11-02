@@ -1,18 +1,18 @@
 import cli from 'cli-color';
-import dotenv from "dotenv";
+import * as dotenv from 'dotenv';
+import path from 'path';
 import { app } from "./app";
 import { connectDB } from './database/connectDB';
+
+
 dotenv.config({
-      path: "./.env",
+      path: path.resolve(__dirname, './.env'),
 });
 
 const port = process.env.PORT || 8000;
 
 (async () => {
       try {
-            // BUG: i'm not getting the .env's data.
-            console.log(process.env.PORT, process.env.MONGO_URI);
-
             await connectDB();
 
             app.on("error", (error: any) => {

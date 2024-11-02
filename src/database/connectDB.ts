@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { DATABASE_NAME } from "../constants";
 
 export const connectDB = async () => {
+
     try {
         const connection = await mongoose.connect(`${process.env.MONGO_URI}/${DATABASE_NAME}`);
         console.log(cli.blue(`MongoDB connected: ${connection.connection.host} - ${DATABASE_NAME}`));
