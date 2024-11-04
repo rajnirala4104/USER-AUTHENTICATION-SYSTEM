@@ -36,11 +36,11 @@ UserSchema.pre('save', async function (next) {
     }
 })
 
-UserSchema.methods.checkPassword = async function (password: string) {
+UserSchema.methods.checkPassword = async function (password: string): Promise<boolean> {
     return await compare(password, this.password);
 }
 
-UserSchema.methods.generateAccessToken = function () {
+UserSchema.methods.generateAccessToken = function (): string {
     // generate an access token that is given to the user upon login
     // this access token is used to authenticate the user for subsequent requests
     // it contains the user's id, email, and username
@@ -52,12 +52,12 @@ UserSchema.methods.generateAccessToken = function () {
             email: this.email,
             userName: this.userName,
         },
-        process.env.ACCESS_JWT_SECRET!,
-        { expiresIn: process.env.ACCESS_JWT_EXPIRY },
+        process.env.ACCESS_JWT_SECRET as string,
+        { expiresIn: process.env.ACCESS_JWT_EXPIRY }, //BUG: not get .env variables
     );
 };
 
-UserSchema.methods.generateRefreshToken = function () {
+UserSchema.methods.generateRefreshToken = function (): string {
     // This function generates a refresh token that is given to the user
     // when they first log in.
     // The refresh token contains only the user's id, and is signed with a secret
@@ -72,8 +72,8 @@ UserSchema.methods.generateRefreshToken = function () {
     // has expired.
     return jsonwebtoken.sign(
         { _id: this._id },
-        process.env.REFRESH_JWT_SECRET!,
-        { expiresIn: process.env.REFRESH_JWT_EXPIRY }
+        process.env.REFRESH_JWT_SECRET as string,
+        { expiresIn: process.env.REFRESH_JWT_EXPIRY } //BUG: not get .env variables
     )
 }
 
