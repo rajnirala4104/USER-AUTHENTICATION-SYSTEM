@@ -3,7 +3,7 @@ import fs from 'fs';
 
 export const uploadOnCloudinary = async (filePath: string) => {
 
-  // BUG: not getting the these .env variables
+  // BUG: not getting these variables
   console.log(process.env.CLOUDINARY_NAME);
   console.log(process.env.CLOUDINARY_API_KEY);
   console.log(process.env.CLOUDINARY_API_SECRET);
